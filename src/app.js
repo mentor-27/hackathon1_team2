@@ -4,9 +4,10 @@ import { ClicksModule } from './modules/clicks.module';
 import { ShapeModule } from './modules/shape.module';
 import './styles.css';
 
-// const modules = [BackgroundModule, ClicksModule, ShapeModule];
+const randomBackground = new BackgroundModule(
+  'random_background',
+  'Поменять цвет'
+);
 const context = new ContextMenu('#menu');
-
-// modules.forEach(module => {
-//   context.add(module);
-// });
+context.add(randomBackground);
+randomBackground.trigger();
