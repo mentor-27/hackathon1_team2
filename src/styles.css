@@ -70,6 +70,10 @@ body {
 	height: 92px;
 }
 
+.timer-message {
+	width: 350px;
+}
+
 .timer-input {
 	outline: none;
 	border: 0;
