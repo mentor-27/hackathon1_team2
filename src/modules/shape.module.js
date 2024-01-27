@@ -16,7 +16,7 @@ export class ShapeModule extends Module {
   trigger() {
     const ctx = this.canvas.getContext("2d");
     function getRandomColor() {
-      let letters = "0123456789ABCDEF";
+      const letters = "0123456789ABCDEF";
       let color = "#";
       for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * (letters.length - 1))];
@@ -24,13 +24,13 @@ export class ShapeModule extends Module {
       return color;
     }
 
-    let shapes = ["square", "circle", "triangle", "diamond", "rectangle", "oval"];
-    let randomShape = shapes[Math.floor(Math.random() * (shapes.length - 1))];
+    const shapes = ["square", "circle", "triangle", "diamond", "rectangle", "oval"];
+    const randomShape = shapes[Math.floor(Math.random() * (shapes.length - 1))];
 
-    let size = Math.floor(Math.random() * 150) + 100;
-    let x = Math.random() * (this.canvas.width - size);
-    let y = Math.random() * (this.canvas.height - size);
-    let color = getRandomColor();
+    const size = Math.floor(Math.random() * 150) + 100;
+    const x = Math.random() * (this.canvas.width - size);
+    const y = Math.random() * (this.canvas.height - size);
+    const color = getRandomColor();
 
     if (color === "#FFFFFF") {
       ctx.strokeStyle = "black";
