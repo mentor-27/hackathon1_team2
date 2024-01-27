@@ -11,7 +11,17 @@ const randomBackground = new BackgroundModule(
   'Поменять цвет'
 );
 const modules = [customMessage, randomBackground];
-const context = new ContextMenu('#menu');
+const contextMenu = new ContextMenu('#menu');
+
 modules.forEach(module => {
-  context.add(module);
+  contextMenu.add(module);
+});
+
+contextMenu.el.addEventListener('click', event => {
+  const { type } = event.target.dataset;
+  if (type) {
+    const currentItem = modules.find(module => module.type === type);
+    currentItem.trigger();
+    contextMenu.close();
+  }
 });
