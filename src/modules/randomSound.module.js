@@ -7,14 +7,14 @@ export class RandomSound extends Module
     #soundArray
 
     // Принимает на вход массив со значениями пути к аудио
-    constructor(soundArray) {
-        super();
+    constructor(soundArray, type = 'RandomSound', text = 'Проиграть звук') {
+        super(type, text);
         this.#audio = new Audio();
         this.#soundArray = soundArray;
     }
 
     //Проигрыват аудио файл
-    play()
+    trigger()
     {
         this.#audio.src = this.#takeRandomSound();
         this.#audio.play();
