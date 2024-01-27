@@ -3,27 +3,37 @@ import {random} from "@/utils";
 
 export class RandomSound extends Module
 {
-    #audio
-    #soundArray
+    #audio;
+    #audioFiles = [];
 
-    // Принимает на вход массив со значениями пути к аудио
-    constructor(soundArray, type = 'RandomSound', text = 'Проиграть звук') {
+    // Принимает на вход type и text передаёт в базовый конструктор
+    constructor(type = 'RandomSound', text = 'Проиграть звук') {
         super(type, text);
-        this.#audio = new Audio();
-        this.#soundArray = soundArray;
     }
 
     //Проигрыват аудио файл
     trigger()
     {
-        this.#audio.src = this.#takeRandomSound();
+        if(this.#audioFiles.length === 0)
+        {
+            this.#importAll(require.context('../', true, /\.wav$/));
+        }
+        this.#audio = new Audio(`${this.#takeRandomSound()}`);
         this.#audio.play();
     }
 
     //Выдаёт рандомный путь к аудио фалу
     #takeRandomSound()
     {
-        const randomNumber = random(0, this.#soundArray.length);
-        return this.#soundArray[randomNumber];
+        const randomNumber = random(0, this.#audioFiles.length);
+        return this.#audioFiles[randomNumber];
+    }
+
+    //Импорт всех аудио фаулов
+    #importAll(r)
+    {
+        r.keys().forEach((s) => {
+            this.#audioFiles.push(s);
+        })
     }
 }
