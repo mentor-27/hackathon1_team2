@@ -1,26 +1,22 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
-  const isProd = argv.mode === 'production'
-  const isDev = !isProd
+  const isProd = argv.mode === 'production';
+  const isDev = !isProd;
 
-  console.log('isProd', isProd)
-  console.log('isDev', isDev)
+  console.log('isProd', isProd);
+  console.log('isDev', isDev);
 
-  const filename = (ext) =>
-    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`
+  const filename = ext =>
+    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`;
 
   return {
     target: 'web',
     context: path.resolve(__dirname, 'src'),
     entry: {
-      main: [
-        'core-js/stable',
-        'regenerator-runtime/runtime',
-        './app.js'
-      ],
+      main: ['core-js/stable', 'regenerator-runtime/runtime', './app.js']
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -36,7 +32,7 @@ module.exports = (env, argv) => {
     devServer: {
       port: '3000',
       open: true,
-      hot: true,
+      hot: true
     },
     devtool: isDev ? 'source-map' : false,
     plugins: [
@@ -45,32 +41,32 @@ module.exports = (env, argv) => {
       }),
       new MiniCssExtractPlugin({
         filename: filename('css')
-      }),
+      })
     ],
     module: {
       rules: [
         {
           test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader"],
+          use: [MiniCssExtractPlugin.loader, 'css-loader']
         },
         {
           test: /\.wav$/i,
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]',
-          },
+            name: '[path][name].[ext]'
+          }
         },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env']
             }
           }
         }
-      ],
+      ]
     }
-  }
-}
+  };
+};
