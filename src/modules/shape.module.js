@@ -6,7 +6,6 @@ export class ShapeModule extends Module {
 	}
   
   trigger() {
-  function drawRandomShape() {
     let canvas = document.createElement("canvas");
     document.body.append(canvas);
     canvas.width = window.innerWidth;
@@ -23,7 +22,7 @@ export class ShapeModule extends Module {
     }
 
     let shapes = ["square", "circle", "triangle", "diamond", "rectangle", "oval"];
-    let randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+    let randomShape = shapes[Math.floor(Math.random() * (shapes.length - 1))];
 
     let x = Math.random() * (canvas.width - 250);
     let y = Math.random() * (canvas.height - 250);
@@ -70,7 +69,4 @@ export class ShapeModule extends Module {
       ctx.fill();
       ctx.stroke();
   } 
-
-  drawRandomShape();
-  }
 }
