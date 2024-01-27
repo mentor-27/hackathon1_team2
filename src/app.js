@@ -1,12 +1,27 @@
 import { ContextMenu } from './menu';
 import { BackgroundModule } from './modules/background.module';
 import { ClicksModule } from './modules/clicks.module';
+import { CustomMessage } from './modules/customMessage.module';
 import { ShapeModule } from './modules/shape.module';
 import './styles.css';
 
-// const modules = [BackgroundModule, ClicksModule, ShapeModule];
-const context = new ContextMenu('#menu');
+const customMessage = new CustomMessage('custom_message', 'Вызвать сообщение');
+const randomBackground = new BackgroundModule(
+  'random_background',
+  'Поменять цвет'
+);
+const modules = [customMessage, randomBackground];
+const contextMenu = new ContextMenu('#menu');
 
-// modules.forEach(module => {
-//   context.add(module);
-// });
+modules.forEach(module => {
+  contextMenu.add(module);
+});
+
+contextMenu.el.addEventListener('click', event => {
+  const { type } = event.target.dataset;
+  if (type) {
+    const currentItem = modules.find(module => module.type === type);
+    currentItem.trigger();
+    contextMenu.close();
+  }
+});
