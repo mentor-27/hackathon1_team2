@@ -60,28 +60,25 @@ body {
 }
 
 .timer-block {
-	width: 450px;
+	width: min-content;
 	position: absolute;
 	left: 20px;
-}
-
-.timer-form {
 	display: flex;
 	justify-content: space-between;
+	gap: 20px;
 	align-items: center;
 	height: 92px;
 }
 
-.timer-form__input {
+.timer-input {
 	outline: none;
 	border: 0;
 	padding: 0.625rem;
-	width: 70%;
 	font-size: 14px;
 	font-family: 'Roboto', sans-serif;
 }
 
-.timer-form__button {
+.timer-button {
 	transition: all 0.2s;
 	padding: 0.625rem;
 	background-color: orange;
@@ -92,6 +89,6 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-.timer-form__button:active {
+.timer-button:hover {
 	background-color: rgb(255, 190, 69);
 }
