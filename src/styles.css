@@ -60,7 +60,7 @@ body {
 }
 
 .timer-block {
-	width: 400px;
+	width: 450px;
 	position: absolute;
 	left: 20px;
 }
@@ -77,18 +77,21 @@ body {
 	border: 0;
 	padding: 0.625rem;
 	width: 70%;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .timer-form__button {
 	transition: all 0.2s;
 	padding: 0.625rem;
-	background-color: rgb(255, 177, 32);
+	background-color: orange;
 	border: 0;
-	border-bottom: 6px solid rgb(206, 134, 0);
 	border-radius: 10px;
 	cursor: pointer;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .timer-form__button:active {
-	border: 0;
+	background-color: rgb(255, 190, 69);
 }
