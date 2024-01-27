@@ -17,11 +17,4 @@ modules.forEach(module => {
   contextMenu.add(module);
 });
 
-contextMenu.el.addEventListener('click', event => {
-  const { type } = event.target.dataset;
-  if (type) {
-    const currentItem = modules.find(module => module.type === type);
-    currentItem.trigger();
-    contextMenu.close();
-  }
-});
+contextMenu.init(modules);
