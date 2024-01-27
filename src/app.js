@@ -9,12 +9,14 @@ import './styles.css';
 
 const customMessage = new CustomMessage('custom_message', 'Вызвать сообщение');
 const randomBackground = new BackgroundModule(
+
   'random_background',
   'Поменять цвет'
 );
 const timer = new Timer('timer', 'Установить таймер');
 const randomSound = new RandomSound('random_sound');
-const modules = [customMessage, randomBackground, timer, randomSound];
+const clickAnalytics = new ClicksModule('clicks', 'Счетчик кликов');
+const modules = [customMessage, randomBackground, timer, randomSound, clickAnalytics];
 const contextMenu = new ContextMenu('#menu');
 
 modules.forEach(module => {
