@@ -127,6 +127,20 @@ canvas {
   box-shadow: 4px 2px 4px #0001;
 }
 
+.currency-block__close {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 20px;
+  cursor: pointer;
+  height: 16px;
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  color: #aaa;
+  font-size: 10px;
+}
+
 .currency-title {
   position: relative;
   height: fit-content;

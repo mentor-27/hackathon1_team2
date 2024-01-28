@@ -15,21 +15,31 @@ export default class CurrencyCheck extends Module {
     this.currencyTitle.className = 'currency-title';
     this.currencyContent = document.createElement('div');
     this.currencyContent.className = 'currency-content';
+    this.closeButton = document.createElement('button');
+    this.closeButton.className = 'currency-block__close';
+    this.closeButton.textContent = 'Close';
+    this.closeButton.onclick = this.close;
     this.priceArrow = document.createElement('img');
     this.priceArrow.className = 'price-arrow';
     this.priceArrow.src = arrow;
     this.btcBlock = document.createElement('span');
     this.rubBlock = document.createElement('span');
+    this.currencyBlock.append(this.closeButton);
     this.currencyBlock.append(this.currencyTitle);
     this.currencyBlock.append(this.currencyContent);
     this.currencyContent.append(this.priceArrow, this.btcBlock, this.rubBlock);
+  }
+
+  close() {
+    clearInterval(this.checker);
+    document.querySelector('.currency-block').remove();
   }
 
   trigger() {
     this.currencyTitle.textContent = 'BTC / RUB';
     document.body.append(this.currencyBlock);
     this.#getData('bitcoin');
-    setInterval(() => this.#getData('bitcoin'), 5000);
+    this.checker = setInterval(() => this.#getData('bitcoin'), 5000);
   }
 
   #parseData(data) {
