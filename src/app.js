@@ -14,7 +14,7 @@ const modules = [
   Modules.CurrencyCheck
 ];
 
-const inputModules = [Modules.Copy, Modules.Paste];
+const inputModules = [Modules.Copy, Modules.Paste, Modules.Cut];
 
 const contextMenu = new ContextMenu('#menu', CONTEXT_MENU);
 const inputContextMenu = new ContextMenu('#input_menu', INPUT_CONTEXT_MENU);

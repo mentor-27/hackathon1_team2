@@ -1,4 +1,5 @@
 import { Module } from '@/core/module';
+import {selection} from "@/utils";
 
 export default class Copy extends Module {
   #selectText;
@@ -8,7 +9,7 @@ export default class Copy extends Module {
     document.body.addEventListener('mouseup', event => {
       const element = document.querySelector('.menu.open');
       if (!element) {
-        this.#selection();
+        this.#selectText = selection();
       }
     });
   }
@@ -23,10 +24,5 @@ export default class Copy extends Module {
           console.error(error);
         });
     }
-  }
-
-  //Записываем выделенный текс в переменную
-  #selection() {
-    this.#selectText = window.getSelection().toString();
   }
 }
