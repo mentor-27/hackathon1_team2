@@ -29,7 +29,7 @@ export default class CurrencyCheck extends Module {
     this.currencyTitle.textContent = 'BTC / RUB';
     document.body.append(this.currencyBlock);
     this.#getData('bitcoin');
-    setInterval(() => this.#getData('bitcoin'), 3000);
+    setInterval(() => this.#getData('bitcoin'), 5000);
   }
 
   #parseData(data) {

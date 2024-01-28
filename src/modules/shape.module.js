@@ -9,14 +9,13 @@ export default class ShapeModule extends Module {
 
   initializeCanvas() {
     this.canvas = document.createElement('canvas');
-    this.canvas.setAttribute('willReadFrequently', 'true');
     document.body.prepend(this.canvas);
     this.adjustCanvasSize();
   }
 
   adjustCanvasSize() {
     const backup = this.canvas
-      .getContext('2d')
+      .getContext('2d', { willReadFrequently: true })
       .getImageData(0, 0, this.canvas.width, this.canvas.height);
     this.canvas.width = window.screen.width;
     this.canvas.height = window.screen.height;
