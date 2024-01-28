@@ -77,8 +77,16 @@ canvas {
   height: 92px;
 }
 
-.timer-message {
+.count-block {
   width: 350px;
+  margin-left: 350px;
+  position: absolute;
+  left: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  height: 92px;
 }
 
 .timer-input {

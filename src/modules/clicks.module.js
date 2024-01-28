@@ -6,14 +6,14 @@ export default class ClicksModule extends Module {
   }
 
   trigger() {
-    const isTimerBlock = document.querySelector('.timer-block');
+    const isCountBlock = document.querySelector('.count-block');
 
-    if (isTimerBlock) {
+    if (isCountBlock) {
       return;
     }
 
     const block = document.createElement('div');
-    block.classList.add('custom-message', 'timer-block', 'timer-message');
+    block.classList.add('custom-message', 'count-block');
 
     const startTimerBtn = document.createElement('button');
     startTimerBtn.classList.add('timer-button');
