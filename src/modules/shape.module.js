@@ -4,13 +4,19 @@ export class ShapeModule extends Module {
   constructor(type = "Shape", text = "Создать случайную фигуру") {
     super(type, text);
     this.initializeCanvas();
+    window.addEventListener("resize", () => this.adjustCanvasSize());
   }
 
   initializeCanvas() {
     this.canvas = document.createElement("canvas");
     document.body.append(this.canvas);
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    this.adjustCanvasSize();
+  }
+
+  adjustCanvasSize() {
+    const canvasMargin = 50;
+    this.canvas.width = window.innerWidth - canvasMargin;
+    this.canvas.height = window.innerHeight - canvasMargin;
   }
 
   trigger() {
@@ -40,35 +46,30 @@ export class ShapeModule extends Module {
 
     ctx.fillStyle = color;
     ctx.lineWidth = 3;
+    ctx.beginPath();
 
     switch (randomShape) {
       case "square":
-        ctx.beginPath();
         ctx.rect(x, y, size, size);
         break;
       case "circle":
-        ctx.beginPath();
         ctx.arc(x + size / 2, y + size / 2, size / 2, 0, 2 * Math.PI);
         break;
       case "triangle":
-        ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.lineTo(x + size, y);
         ctx.lineTo(x + size / 2, y + size);
         break;
       case "diamond":
-        ctx.beginPath();
         ctx.moveTo(x + size / 2, y);
         ctx.lineTo(x + size, y + size / 2);
         ctx.lineTo(x + size / 2, y + size);
         ctx.lineTo(x, y + size / 2);
         break;
       case "rectangle":
-        ctx.beginPath();
         ctx.rect(x, y, size, size * 1.5);
         break;
       case "oval":
-        ctx.beginPath();
         ctx.ellipse(x + size / 2, y + size / 2, size / 2, size / 3, 0, 0, 2 * Math.PI);
         break;
     }
