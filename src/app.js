@@ -1,6 +1,7 @@
 import { ContextMenu } from './menu';
 import * as Modules from './modules';
 import './styles.css';
+import { CONTEXT_MENU, INPUT_CONTEXT_MENU } from '@/data/const';
 
 const modules = [
   Modules.CustomMessage,
@@ -13,9 +14,17 @@ const modules = [
   Modules.CurrencyCheck
 ];
 
-const contextMenu = new ContextMenu('#menu');
+const inputModules = [Modules.Copy, Modules.Paste];
+
+const contextMenu = new ContextMenu('#menu', CONTEXT_MENU);
+const inputContextMenu = new ContextMenu('#input_menu', INPUT_CONTEXT_MENU);
 
 modules.forEach(module => {
   const currModule = new module();
   contextMenu.add(currModule);
+});
+
+inputModules.forEach(module => {
+  const currModule = new module();
+  inputContextMenu.add(currModule);
 });
