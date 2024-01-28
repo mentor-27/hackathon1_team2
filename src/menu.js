@@ -1,21 +1,34 @@
 import { Menu } from './core/menu';
 
 export class ContextMenu extends Menu {
-  constructor(selector) {
+  #typeContextMenu
+  constructor(selector, typeContexMenu) {
     super(selector);
+    this.init();
+    this.#typeContextMenu = typeContexMenu
+
   }
 
-  init(modules) {
+  init() {
     document.addEventListener('contextmenu', event => {
-      event.preventDefault();
-      this.open(event);
-    });
-    this.el.addEventListener('click', event => {
-      const { type } = event.target.dataset;
-      if (type) {
-        const currentItem = modules.find(module => module.type === type);
-        currentItem.trigger();
-        this.close();
+      switch (this.#typeContextMenu)
+      {
+        case CONTEXT_MENU:
+          event.preventDefault();
+          if(!event.target.closest('.text_input'))
+          {
+            this.open(event);
+          }
+          break;
+        case INPUT_CONTEXT_MENU:
+          event.preventDefault();
+          if(event.target.closest('.text_input'))
+          {
+            this.open(event);
+          }
+          break;
+        default:
+          break;
       }
     });
   }
@@ -36,5 +49,12 @@ export class ContextMenu extends Menu {
 
   add(module) {
     this.el.insertAdjacentHTML('beforeend', module.toHTML());
+    this.el.addEventListener('click', event => {
+      const { type } = event.target.dataset;
+      if (type === module.type) {
+        module.trigger();
+        this.close();
+      }
+    });
   }
 }

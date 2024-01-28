@@ -1,6 +1,7 @@
 import { ContextMenu } from './menu';
 import * as Modules from './modules';
 import './styles.css';
+import {CONTEXT_MENU, INPUT_CONTEXT_MENU} from "@/data/const";
 
 const modules = [
   Modules.CustomMessage,
@@ -17,8 +18,8 @@ const inputModules = [
     Modules.Paste
 ]
 
-const contextMenu = new ContextMenu('#menu');
-const inputContextMenu = new ContextMenu('#input_menu')
+const contextMenu = new ContextMenu('#menu', CONTEXT_MENU);
+const inputContextMenu = new ContextMenu('#input_menu', INPUT_CONTEXT_MENU)
 
 modules.forEach(module => {
   const currModule = new module();
