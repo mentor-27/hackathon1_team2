@@ -111,3 +111,20 @@ canvas {
 .timer-button:hover {
   background-color: rgb(255, 190, 69);
 }
+
+.text_input {
+  display: block;
+  margin: 0 auto;
+  width: 80vw;
+  height: 5vw;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  font-size: 24px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 10vh;
+}
