@@ -19,8 +19,8 @@ export class ShapeModule extends Module {
     const backup = this.canvas
       .getContext('2d')
       .getImageData(0, 0, this.canvas.width, this.canvas.height);
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    this.canvas.width = window.screen.width;
+    this.canvas.height = window.screen.height;
     this.canvas.getContext('2d').putImageData(backup, 0, 0);
   }
 
