@@ -12,8 +12,9 @@ const randomBG = new BackgroundModule('random_background', 'Поменять ц�
 const timer = new Timer('timer', 'Установить таймер');
 const randomSound = new RandomSound('random_sound');
 const clickAnalytics = new ClicksModule('clicks', 'Счетчик кликов');
+const randomShape = new ShapeModule('Shape', 'Рандомная фигура');
 
-const modules = [customMessage, randomBG, timer, randomSound, clickAnalytics];
+const modules = [customMessage, randomBG, timer, randomSound, clickAnalytics, randomShape];
 
 const contextMenu = new ContextMenu('#menu');
 

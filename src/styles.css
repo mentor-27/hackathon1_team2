@@ -13,6 +13,7 @@ body {
   width: 100%;
   padding: 2rem;
   transition: background 0.2s;
+  overflow: hidden;
 }
 
 .menu {
