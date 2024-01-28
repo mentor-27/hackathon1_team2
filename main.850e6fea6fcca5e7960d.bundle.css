@@ -1,0 +1,209 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  transition: background 0.2s;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.menu {
+  position: fixed;
+  z-index: 1000;
+  width: fit-content;
+  background: #1b1a1a;
+  border-radius: 5px;
+  display: none;
+  list-style: none;
+}
+
+.menu.open {
+  display: block;
+}
+
+.menu .menu-item {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  border-radius: inherit;
+}
+
+.menu .menu-item:hover {
+  background: #343434;
+}
+
+.custom-message {
+  display: block;
+  position: absolute;
+  inset: 0 0 auto auto;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #f0f0f0;
+  background: #fff;
+  width: 200px;
+  border-radius: 8px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 4px 2px 4px #0001;
+}
+
+.timer-block {
+  width: max-content;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  height: 92px;
+}
+
+.count-block {
+  width: max-content;
+  position: absolute;
+  top: unset;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  height: 92px;
+}
+
+.timer-input {
+  outline: none;
+  border: 0;
+  padding: 0.625rem;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.timer-button {
+  transition: all 0.2s;
+  padding: 0.625rem;
+  background-color: orange;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.timer-button:hover {
+  background-color: rgb(255, 190, 69);
+}
+
+.currency-block {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+  border: 1px solid #f0f0f0;
+  background: #fff;
+  width: 260px;
+  height: 90px;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 4px 2px 4px #0001;
+}
+
+.currency-block__close {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 20px;
+  cursor: pointer;
+  height: 16px;
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  color: #aaa;
+  font-size: 10px;
+}
+
+.currency-title {
+  position: relative;
+  height: fit-content;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.currency-title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -7px;
+  background: #f0f0f0;
+}
+
+.currency-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.price-arrow {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  transition: transform 0.2s;
+}
+
+.text_input {
+  display: block;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding-inline: 8px;
+  width: 300px;
+  height: 2rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  outline: none;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.voice-btn__listen {
+  display: block;
+  padding: 0.625rem;
+  background-color: orange;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  margin: 10px auto;
+}
+
