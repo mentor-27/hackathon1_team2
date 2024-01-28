@@ -74,9 +74,24 @@ export class ShapeModule extends Module {
         break;
     }
 
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.05)';
+    ctx.shadowBlur = 3;
+    ctx.shadowOffsetX = 0.3;
+    ctx.shadowOffsetY = -0.2;
+
+    let alpha = 0;
+    function fadeIn() {
+      if (alpha < 1) {
+        alpha += 0.01;
+        requestAnimationFrame(fadeIn);
+      }
+      ctx.globalAlpha = alpha;
+      ctx.fill();
+      ctx.stroke();
+    }
+    
+    fadeIn();
     ctx.clearRect(0,0,this.canvas.width,this.canvas.height)
-    ctx.fill();
-    ctx.stroke();
     ctx.closePath();
   }
 }
