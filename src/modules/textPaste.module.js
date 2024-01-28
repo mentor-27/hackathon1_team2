@@ -1,4 +1,5 @@
-import { Module } from '@/core/module';
+import { Module } from '../core/module';
+import {activeInput} from "../utils";
 
 export default class Paste extends Module {
   #activeElement;
@@ -7,7 +8,7 @@ export default class Paste extends Module {
 
     //Получаем элемент в котором было открыто контекстное меню
     document.body.addEventListener('contextmenu', event => {
-      this.#addActiveElement(event);
+      this.#activeElement = activeInput(event);
     });
   }
 
@@ -21,13 +22,5 @@ export default class Paste extends Module {
         // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
         console.error('Ошибка', err.message);
       });
-  }
-
-  // Проверяем, что это текстовое поле
-  #addActiveElement(event) {
-    const element = event.target.closest('.text_input');
-    if (element) {
-      this.#activeElement = element;
-    }
   }
 }
