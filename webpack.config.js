@@ -50,6 +50,10 @@ module.exports = (env, argv) => {
           use: [MiniCssExtractPlugin.loader, 'css-loader']
         },
         {
+          test: /.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource'
+        },
+        {
           test: /\.wav$/i,
           loader: 'file-loader',
           options: {

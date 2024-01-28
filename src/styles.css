@@ -120,23 +120,46 @@ canvas {
   margin: 1rem;
   border: 1px solid #f0f0f0;
   background: #fff;
-  width: 200px;
-  height: max-content;
+  width: 260px;
+  height: 90px;
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 4px 2px 4px #0001;
 }
 
 .currency-title {
+  position: relative;
   height: fit-content;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   font-size: 20px;
   font-weight: 600;
 }
 
+.currency-title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -7px;
+  background: #f0f0f0;
+}
+
 .currency-content {
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.price-arrow {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  transition: transform 0.2s;
 }
 
 .text_input {
