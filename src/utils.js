@@ -3,16 +3,15 @@ export function random(min, max) {
 }
 
 //Получаем выделенный текст
-export function selection()
-{
+export function selection() {
   return window.getSelection().toString();
 }
 
 //Проверяем, что элемент текстовое поле
-export function activeInput(event)
-{
+export function activeInput(event) {
   const element = event.target.closest('.text_input');
   if (element) {
     return element;
   }
+  return false;
 }

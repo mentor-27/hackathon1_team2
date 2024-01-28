@@ -29,12 +29,12 @@ export default class CurrencyCheck extends Module {
     this.currencyTitle.textContent = 'BTC / RUB';
     document.body.append(this.currencyBlock);
     this.#getData('bitcoin');
-    setInterval(() => this.#getData(), 1000);
+    setInterval(() => this.#getData('bitcoin'), 3000);
   }
 
   #parseData(data) {
-    const btcText = `${data.priceBtc} ${data.symbol}`;
-    const rubText = `${data.price.toLocaleString('ru-RU')} RUB`;
+    const cryptoText = `${data.priceBtc} ${data.symbol}`;
+    const fiatText = `${data.price.toLocaleString('ru-RU')} RUB`;
     if (this.momentPrice === data.price) this.rubBlock.removeAttribute('style');
     if (this.momentPrice < data.price) {
       this.priceArrow.style.transform = 'rotate(-90deg)';
@@ -44,8 +44,8 @@ export default class CurrencyCheck extends Module {
       this.rubBlock.style.color = '#cf1322';
     }
     this.momentPrice = data.price;
-    this.btcBlock.textContent = btcText;
-    this.rubBlock.textContent = rubText;
+    this.btcBlock.textContent = cryptoText;
+    this.rubBlock.textContent = fiatText;
   }
 
   #getData(currency) {

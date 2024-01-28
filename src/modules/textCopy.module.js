@@ -6,6 +6,7 @@ export default class Copy extends Module {
   constructor(type = 'copy_text', text = 'Копировать') {
     super(type, text);
 
+    //Получаем выделенный текст
     document.body.addEventListener('mouseup', event => {
       const element = document.querySelector('.menu.open');
       if (!element) {
@@ -16,7 +17,8 @@ export default class Copy extends Module {
 
   trigger() {
     if (this.#selectText.length > 0) {
-      //API clipboard для асинхронного взаимодействия с буфером обмена
+      //API clipboard для асинхронного взаимодействия с буфером обмена.
+      //Записываем данные в буфер обмена.
       navigator.clipboard
         .writeText(this.#selectText)
         .then()

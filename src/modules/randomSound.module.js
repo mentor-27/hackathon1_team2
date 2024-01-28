@@ -2,7 +2,6 @@ import { Module } from '@/core/module';
 import { random } from '@/utils';
 
 export default class RandomSound extends Module {
-  #audio;
   #audioFiles = [];
 
   // Принимает на вход type и text передаёт в базовый конструктор
@@ -12,11 +11,12 @@ export default class RandomSound extends Module {
 
   //Проигрыват аудио файл
   trigger() {
+    //Подгружаем все аудио файлы
     if (this.#audioFiles.length === 0) {
       this.#importAll(require.context('../', true, /\.wav$/));
     }
-    this.#audio = new Audio(`${this.#takeRandomSound()}`);
-    this.#audio.play();
+    const audio = new Audio(`${this.#takeRandomSound()}`);
+    audio.play();
   }
 
   //Выдаёт рандомный путь к аудио файлу

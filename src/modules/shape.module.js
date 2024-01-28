@@ -9,6 +9,7 @@ export default class ShapeModule extends Module {
 
   initializeCanvas() {
     this.canvas = document.createElement('canvas');
+    this.canvas.setAttribute('willReadFrequently', 'true');
     document.body.prepend(this.canvas);
     this.adjustCanvasSize();
   }

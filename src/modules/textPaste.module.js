@@ -6,13 +6,14 @@ export default class Paste extends Module {
   constructor(type = 'text_paste', text = 'Вставить') {
     super(type, text);
 
-    //Получаем элемент в котором было открыто контекстное меню
+    //Получаем элемент в котором было открыто контекстное меню;
     document.body.addEventListener('contextmenu', event => {
       this.#activeElement = activeInput(event);
     });
   }
 
   trigger() {
+    //Читаем данные из буфера обмена.
     navigator.clipboard
       .readText()
       .then(text => {
