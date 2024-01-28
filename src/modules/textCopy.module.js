@@ -1,5 +1,5 @@
 import { Module } from '../core/module';
-import {selection} from "../utils";
+import { selection } from '../utils';
 
 export default class Copy extends Module {
   #selectText;
