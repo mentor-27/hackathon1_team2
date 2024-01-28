@@ -1,7 +1,7 @@
 import { Module } from '../core/module';
 
 export class ClicksModule extends Module {
-  constructor(type, text) {
+  constructor(type = 'click_analytics', text = 'Счетчик кликов') {
     super(type, text);
   }
 
@@ -24,9 +24,9 @@ export class ClicksModule extends Module {
     input.type = 'text';
     input.placeholder = 'Значение в секундах';
 
-    input.addEventListener('input', (event) => {
+    input.addEventListener('input', event => {
       const { target } = event;
-      target.value = target.value.replace(/\D/g, "");
+      target.value = target.value.replace(/\D/g, '');
     });
 
     const timeDisplayBlock = document.createElement('div');

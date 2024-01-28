@@ -13,12 +13,19 @@ body {
   width: 100%;
   padding: 2rem;
   transition: background 0.2s;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 
 .menu {
   position: fixed;
   z-index: 1000;
-  width: 150px;
+  width: fit-content;
   background: #1b1a1a;
   border-radius: 5px;
   display: none;
@@ -31,7 +38,7 @@ body {
 
 .menu .menu-item {
   padding: 8px 10px;
-  font-size: 1rem;
+  font-size: 14px;
   color: #eee;
   cursor: pointer;
   transition: background-color 0.2s ease-in;
@@ -71,7 +78,7 @@ body {
 }
 
 .timer-message {
-	width: 350px;
+  width: 350px;
 }
 
 .timer-input {
