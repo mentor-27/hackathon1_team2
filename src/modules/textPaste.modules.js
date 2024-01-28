@@ -1,5 +1,6 @@
 import { Module } from "@/core/module";
 
+
 export class Paste extends Module
 {
     #activeElement;
@@ -15,15 +16,14 @@ export class Paste extends Module
     trigger(event)
     {
         navigator.clipboard.readText()
-        .then(text => {
-            this.#activeElement.value = this.#activeElement.value + text;
-        })
-        .catch(err => {
-            // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
-            console.log('Ошибка', err);
-        });
+            .then(text => {
+                this.#activeElement.value = this.#activeElement.value + text;
+            })
+            .catch(err => {
+                // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
+                console.log('Ошибка', err);
+            });
     }
-
 
     // Проверяем, что это текстовое поле
     #addActiveElement(event)

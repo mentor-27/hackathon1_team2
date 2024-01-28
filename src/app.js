@@ -15,7 +15,7 @@ const modules = [
 
 const inputModules = [
     Modules.Copy,
-    Modules.Paste
+    Modules.Paste,
 ]
 
 const contextMenu = new ContextMenu('#menu', CONTEXT_MENU);
