@@ -14,7 +14,7 @@ export default class CurrencyCheck extends Module {
   }
 
   trigger() {
-    this.currencyContent.textContent = 'BTC/USD';
+    this.currencyTitle.textContent = 'BTC/USD';
     document.body.append(this.currencyBlock);
   }
 }
