@@ -9,12 +9,16 @@ export default class CurrencyCheck extends Module {
     this.currencyTitle.className = 'currency-title';
     this.currencyContent = document.createElement('div');
     this.currencyContent.className = 'currency-content';
+    this.currencyDirection = document.createElement('span');
+    this.currencyDirection.className = 'currency-direction';
     this.currencyBlock.append(this.currencyTitle);
     this.currencyBlock.append(this.currencyContent);
+    this.currencyContent.append(this.currencyDirection);
   }
 
   trigger() {
     this.currencyTitle.textContent = 'BTC/USD';
+    this.currencyContent.textContent = 'Текущий курс';
     document.body.append(this.currencyBlock);
   }
 }
