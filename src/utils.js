@@ -13,5 +13,4 @@ export function activeInput(event) {
   if (element) {
     return element;
   }
-  return false;
 }

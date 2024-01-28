@@ -1,34 +1,28 @@
 import { Menu } from './core/menu';
-import {CONTEXT_MENU, INPUT_CONTEXT_MENU} from "@/data/const";
+import { CONTEXT_MENU, INPUT_CONTEXT_MENU } from '@/data/const';
 
 export class ContextMenu extends Menu {
-  #typeContextMenu
+  #typeContextMenu;
   constructor(selector, typeContexMenu) {
     super(selector);
     this.init();
-    this.#typeContextMenu = typeContexMenu
-
+    this.#typeContextMenu = typeContexMenu;
   }
 
   init() {
     document.addEventListener('contextmenu', event => {
-      switch (this.#typeContextMenu)
-      {
+      switch (this.#typeContextMenu) {
         case CONTEXT_MENU:
           event.preventDefault();
-          if(!event.target.closest('.text_input'))
-          {
+          if (!event.target.closest('.text_input')) {
             this.open(event);
           }
           break;
         case INPUT_CONTEXT_MENU:
           event.preventDefault();
-          if(event.target.closest('.text_input'))
-          {
+          if (event.target.closest('.text_input')) {
             this.open(event);
           }
-          break;
-        default:
           break;
       }
     });

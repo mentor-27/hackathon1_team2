@@ -18,12 +18,6 @@ export default class Cut extends Module {
         this.#selectText = selection();
       }
     });
-    if (this.#activeElement) {
-      this.#activeElement.value = this.#activeElement.value.replace(
-        this.#selectText,
-        ''
-      );
-    }
   }
 
   trigger() {
