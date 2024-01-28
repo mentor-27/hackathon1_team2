@@ -1,7 +1,7 @@
 import { Module } from '../core/module';
 
 export class CustomMessage extends Module {
-  constructor(type, text) {
+  constructor(type = 'custom_message', text = 'Вызвать сообщение') {
     super(type, text);
   }
 

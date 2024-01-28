@@ -1,7 +1,7 @@
 import { Module } from '../core/module';
 
 export class BackgroundModule extends Module {
-  constructor(type, text) {
+  constructor(type = 'random_background', text = 'Поменять цвет') {
     super(type, text);
   }
 

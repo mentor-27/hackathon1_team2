@@ -1,7 +1,7 @@
 import { Module } from '../core/module';
 
 export class Timer extends Module {
-  constructor(type, text) {
+  constructor(type = 'timer', text = 'Установить таймер') {
     super(type, text);
   }
 
