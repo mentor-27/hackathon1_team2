@@ -8,26 +8,20 @@ import { RandomSound } from './modules/randomSound.module';
 import { Copy } from './modules/textCopy.module';
 import './styles.css';
 
-const customMessage = new CustomMessage();
-const randomBG = new BackgroundModule();
-const timer = new Timer();
-const randomSound = new RandomSound();
-const clickAnalytics = new ClicksModule();
-const textCopy = new Copy();
-
 const modules = [
-  customMessage,
-  randomBG,
-  timer,
-  randomSound,
-  clickAnalytics,
-  textCopy
+  CustomMessage,
+  BackgroundModule,
+  Timer,
+  RandomSound,
+  ClicksModule,
+  Copy,
+  ShapeModule
 ];
 
 const contextMenu = new ContextMenu('#menu');
 
 modules.forEach(module => {
-  contextMenu.add(module);
+  const currModule = new module();
+  contextMenu.add(currModule);
+  contextMenu.addListener(currModule);
 });
-
-contextMenu.init(modules);

@@ -3,18 +3,21 @@ import { Menu } from './core/menu';
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
+    this.init();
   }
 
-  init(modules) {
+  init() {
     document.addEventListener('contextmenu', event => {
       event.preventDefault();
       this.open(event);
     });
+  }
+
+  addListener(module) {
     this.el.addEventListener('click', event => {
       const { type } = event.target.dataset;
-      if (type) {
-        const currentItem = modules.find(module => module.type === type);
-        currentItem.trigger();
+      if (type === module.type) {
+        module.trigger();
         this.close();
       }
     });
