@@ -7,34 +7,27 @@ export class Copy extends Module
     constructor(type = 'copy_text', text = 'Копировать') {
         super(type, text);
 
-        //Событие клика для проверки, что мы вышли из контекстного меню
-        document.addEventListener('click', () => {
-            this.#contextMenu = false;
-        })
-
-        //Событие открытия конекстного для проверкичто бы в него вошли
-        document.addEventListener('contextmenu', () => {
-            this.#contextMenu = true;
-        });
-
-        //Событие смены текущего выделения
-        document.addEventListener('selectionchange', event => {
-            if(!this.#contextMenu)
+        document.body.addEventListener('mouseup', event => {
+            const element = document.querySelector('.menu.open');
+            if(!element)
             {
                 this.#selection();
             }
-        });
+        })
     }
 
     trigger()
     {
-        //API clipboard для асинхронного взаимодействия с буфером обмена
-        navigator.clipboard.writeText(this.#selectText)
-            .then()
-            .catch((error) =>{
-                console.error(error);
-            }
-        );
+        if(this.#selectText.length > 0)
+        {
+            //API clipboard для асинхронного взаимодействия с буфером обмена
+            navigator.clipboard.writeText(this.#selectText)
+                .then()
+                .catch((error) =>{
+                        console.error(error);
+                }
+            );
+        }
     }
 
     //Записываем выделенный текс в переменную
