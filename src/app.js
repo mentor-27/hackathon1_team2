@@ -12,9 +12,20 @@ const modules = [
   Modules.ShapeModule
 ];
 
+const inputModules = [
+    Modules.Copy,
+    Modules.Paste
+]
+
 const contextMenu = new ContextMenu('#menu');
+const inputContextMenu = new ContextMenu('#input_menu')
 
 modules.forEach(module => {
   const currModule = new module();
   contextMenu.add(currModule);
+});
+
+inputModules.forEach(module => {
+  const currModule = new module();
+  inputContextMenu.add(currModule);
 });
