@@ -8,7 +8,7 @@ import Timer from './timer.module';
 import Paste from './textPaste.module';
 import CurrencyCheck from './currencyCheck.module';
 import Cut from './textCut.module';
-import VoiceInput from './voice-input';
+import VoiceInput from './voiceInput.module';
 
 export {
   BackgroundModule,
