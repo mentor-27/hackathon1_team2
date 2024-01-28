@@ -7,7 +7,7 @@ import Copy from './textCopy.module';
 import Timer from './timer.module';
 import Paste from './textPaste.module';
 import CurrencyCheck from './currencyCheck.module';
-import {Cut} from "@/modules/textCut.module";
+import Cut from "./textCut.module";
 
 export {
   BackgroundModule,
@@ -19,5 +19,5 @@ export {
   Paste,
   Timer,
   CurrencyCheck,
-    Cut
+  Cut
 };

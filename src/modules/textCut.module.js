@@ -1,7 +1,7 @@
-import {Module} from "@/core/module";
-import {activeInput, selection} from "@/utils";
+import {Module} from "../core/module";
+import {activeInput, selection} from "../utils";
 
-export class Cut extends Module
+export default class Cut extends Module
 {
     #activeElement;
     #selectText;

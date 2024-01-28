@@ -1,5 +1,5 @@
-import { Module } from '@/core/module';
-import {activeInput} from "@/utils";
+import { Module } from '../core/module';
+import {activeInput} from "../utils";
 
 export default class Paste extends Module {
   #activeElement;
