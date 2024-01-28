@@ -9,7 +9,8 @@ const modules = [
   Modules.RandomSound,
   Modules.ClicksModule,
   Modules.Copy,
-  Modules.ShapeModule
+  Modules.ShapeModule,
+  Modules.CurrencyCheck
 ];
 
 const contextMenu = new ContextMenu('#menu');

@@ -1,6 +1,6 @@
 import { Module } from '../core/module';
 
-export class Timer extends Module {
+export default class Timer extends Module {
   constructor(type = 'timer', text = 'Установить таймер') {
     super(type, text);
   }

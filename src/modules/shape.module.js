@@ -1,6 +1,6 @@
 import { Module } from '../core/module';
 
-export class ShapeModule extends Module {
+export default class ShapeModule extends Module {
   constructor(type = 'Shape', text = 'Создать случайную фигуру') {
     super(type, text);
     this.initializeCanvas();

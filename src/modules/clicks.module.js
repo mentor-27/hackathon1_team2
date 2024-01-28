@@ -1,6 +1,6 @@
 import { Module } from '../core/module';
 
-export class ClicksModule extends Module {
+export default class ClicksModule extends Module {
   constructor(type = 'click_analytics', text = 'Счетчик кликов') {
     super(type, text);
   }

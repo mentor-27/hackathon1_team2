@@ -1,7 +1,7 @@
 import { Module } from '@/core/module';
 import { random } from '@/utils';
 
-export class RandomSound extends Module {
+export default class RandomSound extends Module {
   #audio;
   #audioFiles = [];
 

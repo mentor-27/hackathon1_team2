@@ -1,6 +1,6 @@
 import { Module } from '@/core/module';
 
-export class Copy extends Module {
+export default class Copy extends Module {
   #selectText;
   constructor(type = 'copy_text', text = 'Копировать') {
     super(type, text);
