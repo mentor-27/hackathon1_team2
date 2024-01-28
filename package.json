@@ -1,6 +1,7 @@
 {
   "name": "context-menu",
   "version": "1.0.0",
+  "homepage": "http://mentor-27.github.io/hackathon1_team2",
   "description": "",
   "main": "app.js",
   "scripts": {
