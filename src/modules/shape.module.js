@@ -9,18 +9,24 @@ export class ShapeModule extends Module {
 
   initializeCanvas() {
     this.canvas = document.createElement("canvas");
+    this.canvas.style.position = "absolute";
+    this.canvas.style.inset = "0";
     document.body.append(this.canvas);
     this.adjustCanvasSize();
   }
 
   adjustCanvasSize() {
-    const canvasMargin = 50;
-    this.canvas.width = window.innerWidth - canvasMargin;
-    this.canvas.height = window.innerHeight - canvasMargin;
+    const backup = this.canvas
+      .getContext('2d')
+      .getImageData(0, 0, this.canvas.width, this.canvas.height);
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    this.canvas.getContext('2d').putImageData(backup, 0, 0);
   }
 
   trigger() {
     const ctx = this.canvas.getContext("2d");
+    ctx.clearRect(0,0,this.canvas.width,this.canvas.height)
     function getRandomColor() {
       const letters = "0123456789ABCDEF";
       let color = "#";
@@ -89,9 +95,8 @@ export class ShapeModule extends Module {
       ctx.fill();
       ctx.stroke();
     }
-    
+
     fadeIn();
-    ctx.clearRect(0,0,this.canvas.width,this.canvas.height)
     ctx.closePath();
   }
 }
