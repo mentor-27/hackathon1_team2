@@ -13,16 +13,6 @@ export class ContextMenu extends Menu {
     });
   }
 
-  addListener(module) {
-    this.el.addEventListener('click', event => {
-      const { type } = event.target.dataset;
-      if (type === module.type) {
-        module.trigger();
-        this.close();
-      }
-    });
-  }
-
   open({ clientX, clientY }) {
     this.el.classList.add('open');
     const { height, width } = this.el.getBoundingClientRect();
@@ -39,5 +29,12 @@ export class ContextMenu extends Menu {
 
   add(module) {
     this.el.insertAdjacentHTML('beforeend', module.toHTML());
+    this.el.addEventListener('click', event => {
+      const { type } = event.target.dataset;
+      if (type === module.type) {
+        module.trigger();
+        this.close();
+      }
+    });
   }
 }
