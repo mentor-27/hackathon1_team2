@@ -2,7 +2,7 @@ import {Module} from "@/core/module";
 
 export class Paste extends Module
 {
-    #activeElemetnt;
+    #activeElement;
     constructor(type = 'text_paste', text = 'Вставить') {
         super(type, text);
 
@@ -16,7 +16,7 @@ export class Paste extends Module
     {
         navigator.clipboard.readText()
         .then(text => {
-            this.#activeElemetnt.value = this.#activeElemetnt.value + text;
+            this.#activeElement.value = this.#activeElement.value + text;
         })
         .catch(err => {
             // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
@@ -31,7 +31,7 @@ export class Paste extends Module
         const element = event.target.closest('.text_input');
         if(element)
         {
-            this.#activeElemetnt = element;
+            this.#activeElement = element;
         }
     }
 }
