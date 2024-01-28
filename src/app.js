@@ -11,7 +11,8 @@ const modules = [
   Modules.ClicksModule,
   Modules.Copy,
   Modules.ShapeModule,
-  Modules.CurrencyCheck
+  Modules.CurrencyCheck,
+  Modules.VoiceInput
 ];
 
 const inputModules = [Modules.Copy, Modules.Paste, Modules.Cut];
