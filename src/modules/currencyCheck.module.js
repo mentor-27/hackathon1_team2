@@ -28,7 +28,7 @@ export default class CurrencyCheck extends Module {
   trigger() {
     this.currencyTitle.textContent = 'BTC / RUB';
     document.body.append(this.currencyBlock);
-    this.#getData();
+    this.#getData('bitcoin');
     setInterval(() => this.#getData(), 1000);
   }
 
@@ -48,7 +48,7 @@ export default class CurrencyCheck extends Module {
     this.rubBlock.textContent = rubText;
   }
 
-  #getData() {
+  #getData(currency) {
     const options = {
       method: 'GET',
       headers: {
@@ -58,7 +58,7 @@ export default class CurrencyCheck extends Module {
     };
 
     return fetch(
-      'https://openapiv1.coinstats.app/coins/bitcoin?currency=RUB',
+      `https://openapiv1.coinstats.app/coins/${currency}?currency=RUB`,
       options
     )
       .then(response => response.json())
