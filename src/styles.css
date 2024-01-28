@@ -67,9 +67,9 @@ canvas {
 }
 
 .timer-block {
-  width: min-content;
+  width: max-content;
   position: absolute;
-  left: 20px;
+  left: 0;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -78,10 +78,11 @@ canvas {
 }
 
 .count-block {
-  width: 350px;
-  margin-left: 350px;
+  width: max-content;
   position: absolute;
-  left: 20px;
+  top: unset;
+  left: 0;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   gap: 20px;
